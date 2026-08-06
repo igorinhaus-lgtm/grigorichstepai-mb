@@ -3,343 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Машинная вышивка | Ручная работа в Барде</title>
+<title>Машинная вышивка — студия МВ | Ручная работа и эксклюзив</title>
 <style>
-  :root{
-    --emerald:#1f5c4b;
-    --emerald-dark:#143c31;
-    --gold:#c9a227;
-    --gold-light:#e6c45a;
-    --sand:#f4efe3;
-    --ink:#2a2620;
-    --bordo:#8a2f2f;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Georgia',serif;
-    color:var(--ink);
-    background:var(--sand);
-    line-height:1.6;
-  }
-  /* Национальный татарский фон-орнамент (не красный) */
-  .tatar-bg{
-    background-color:var(--emerald);
-    background-image:
-      radial-gradient(circle at 15% 20%, rgba(230,196,90,.20) 0, transparent 28%),
-      radial-gradient(circle at 85% 75%, rgba(230,196,90,.18) 0, transparent 30%),
-      repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 6px, transparent 6px 12px);
-  }
-  .kepka-fon{
-    background:linear-gradient(180deg, rgba(20,60,49,.82), rgba(20,60,49,.86)),
-      url('https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png') center/cover no-repeat;
-  }
+:root{
+  --ruby:#8e1f2f;
+  --ruby-dark:#6b1421;
+  --gold:#d9a441;
+  --gold-light:#f0c36b;
+  --emerald:#1f5c4d;
+  --cream:#f7f1e6;
+  --ink:#31241a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Georgia','Times New Roman',serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+}
+/* ===== TATAR ORNAMENT BACKGROUND (non-red, emerald+gold) ===== */
+.bg-tatar{
+  background-color:var(--emerald);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(217,164,65,.18) 0 6px, transparent 7px),
+    radial-gradient(circle at 80% 40%, rgba(217,164,65,.14) 0 5px, transparent 6px),
+    radial-gradient(circle at 40% 75%, rgba(217,164,65,.16) 0 6px, transparent 7px),
+    linear-gradient(rgba(26,74,60,.55), rgba(26,74,60,.55));
+  background-size:120px 120px,auto,auto,cover;
+}
+.bg-tatar-light{
+  background-color:#14463b;
+  background-image:
+    radial-gradient(circle, rgba(240,195,107,.9) 1.6px, transparent 2.2px);
+  background-size:18px 18px;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 
-  /* ===== HEADER ===== */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:var(--emerald-dark);
-    box-shadow:0 2px 12px rgba(0,0,0,.25);
-  }
-  .nav{
-    max-width:1200px;margin:0 auto;padding:12px 20px;
-    display:flex;align-items:center;justify-content:space-between;gap:16px;
-  }
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold)}
-  .brand-name{color:#fff;font-size:1.15rem;font-weight:bold;letter-spacing:.5px}
-  .brand-name small{display:block;font-size:.7rem;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase}
-  .menu{display:flex;gap:26px;list-style:none}
-  .menu a{color:#f2ead6;text-decoration:none;font-size:.95rem;transition:.3s}
-  .menu a:hover{color:var(--gold-light)}
-  .burger{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
+/* ===== HEADER ===== */
+header{
+  background:var(--ruby-dark);
+  background-image:
+    radial-gradient(circle at 30% 50%, rgba(217,164,65,.12) 0 4px, transparent 5px),
+    linear-gradient(rgba(70,14,24,.4),rgba(70,14,24,.4));
+  padding:14px 0;
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+}
+header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);object-fit:cover}
+.logo-title{color:var(--gold-light);font-size:1.15rem;font-weight:bold;letter-spacing:.5px}
+.logo-sub{display:block;font-size:.72rem;color:var(--cream);opacity:.85;letter-spacing:1.5px}
+nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+nav a{color:var(--cream);text-decoration:none;font-size:.92rem;transition:color .2s}
+nav a:hover{color:var(--gold-light)}
 
-  /* ===== HERO ===== */
-  .hero{padding:70px 20px;color:#fff;position:relative;overflow:hidden}
-  .hero-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:50px;flex-wrap:wrap}
-  .hero-text{flex:1;min-width:280px}
-  .hero-text h1{font-size:2.3rem;line-height:1.2;margin-bottom:18px}
-  .hero-text h1 span{color:var(--gold-light)}
-  .hero-text p{font-size:1.1rem;max-width:520px;margin-bottom:26px;color:#efe9d8}
-  .btn{
-    display:inline-block;background:var(--gold);color:var(--emerald-dark);
-    padding:14px 30px;border-radius:40px;font-weight:bold;text-decoration:none;
-    font-size:1.05rem;transition:.3s;box-shadow:0 6px 20px rgba(201,162,39,.4);
-  }
-  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
-  .hero-photo{flex:0 0 320px;display:flex;justify-content:center}
-  .hero-photo img{
-    width:300px;height:300px;border-radius:50%;object-fit:cover;
-    border:5px solid var(--gold);box-shadow:0 0 40px rgba(201,162,39,.5);
-  }
-  .badge-stich{
-    display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.35);
-    padding:8px 16px;border-radius:30px;margin-bottom:20px;font-size:.85rem;color:var(--gold-light);
-  }
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  background:url('https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp') center/cover no-repeat;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(rgba(31,92,77,.82),rgba(24,70,58,.9));
+}
+.hero .wrap{position:relative;z-index:2;display:flex;align-items:center;gap:50px;padding:80px 20px;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.hero-text h1{
+  color:var(--gold-light);font-size:2.6rem;line-height:1.15;margin-bottom:18px;
+}
+.hero-text h1 span{color:#fff}
+.hero-text p{color:#f4efe4;font-size:1.1rem;margin-bottom:24px;max-width:560px}
+.hero-badge{
+  display:inline-block;background:var(--gold);color:var(--ink);
+  padding:10px 18px;border-radius:30px;font-weight:bold;font-size:.95rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+.hero-photo{flex:0 0 320px}
+.hero-photo img{
+  width:100%;max-width:320px;aspect-ratio:1/1;border-radius:50%;
+  object-fit:cover;border:6px solid var(--gold);
+  box-shadow:0 0 0 8px rgba(31,92,77,.7),0 20px 40px rgba(0,0,0,.45);
+}
 
-  /* ===== SECTIONS ===== */
-  section{max-width:1200px;margin:0 auto;padding:60px 20px}
-  .section-title{text-align:center;font-size:1.9rem;margin-bottom:10px;position:relative;padding-bottom:16px}
-  .section-title:after{content:"";display:block;width:70px;height:3px;background:var(--gold);margin:14px auto 0;border-radius:3px}
-  .section-sub{text-align:center;color:#6b6456;max-width:700px;margin:0 auto 40px}
+/* ===== SECTION ===== */
+section{padding:70px 0}
+.section-title{text-align:center;font-size:2rem;color:var(--ruby-dark);margin-bottom:8px}
+.section-sub{text-align:center;color:#6b5b4f;margin-bottom:44px;font-size:1.02rem}
+.accent-word{color:var(--ruby)}
 
-  /* ===== УСЛУГИ ===== */
-  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
-  .card{
-    background:#fff;border-radius:16px;padding:26px;text-align:center;
-    box-shadow:0 4px 16px rgba(0,0,0,.07);transition:.3s;border:1px solid #e7dfcb;
-  }
-  .card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,.12)}
-  .card .ico{font-size:2.4rem;margin-bottom:12px}
-  .card h3{color:var(--emerald);margin-bottom:8px}
-  .card p{color:#6b6456;font-size:.95rem}
+/* ===== SERVICES ===== */
+.services{background:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.service-card{
+  background:var(--cream);border:2px solid var(--gold);border-radius:14px;
+  padding:30px 22px;text-align:center;transition:transform .25s,box-shadow .25s;
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+.service-emoji{font-size:2.6rem;margin-bottom:12px}
+.service-card h3{color:var(--ruby-dark);margin-bottom:8px}
+.service-card p{color:#6b5b4f;font-size:.95rem}
 
-  /* ===== ГАЛЕРЕЯ ===== */
-  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
-  .g-item{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 4px 14px rgba(0,0,0,.08)}
-  .g-item img{width:100%;height:240px;object-fit:cover;display:block;transition:.4s}
-  .g-item:hover img{transform:scale(1.06)}
-  .g-caption{
-    position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;
-    background:linear-gradient(0deg, rgba(20,60,49,.9), transparent);
-    color:#fff;font-size:.9rem;font-weight:bold;
-  }
+/* ===== GALLERY ===== */
+.gallery{background:var(--emerald);background-image:radial-gradient(circle,rgba(240,195,107,.9) 1.6px,transparent 2.2px);background-size:18px 18px}
+.gallery .section-title{color:#fff}
+.gallery .section-sub{color:#e8dcc8}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.gal-item{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .25s}
+.gal-item:hover{transform:scale(1.03)}
+.gal-item img{width:100%;height:230px;object-fit:cover;display:block}
+.gal-item .cap{padding:14px;text-align:center;font-weight:bold;color:var(--ruby-dark);font-size:.98rem}
 
-  /* ===== ОТЗЫВЫ (скролл) ===== */
-  .scroll-row{display:flex;gap:20px;overflow-x:auto;padding:10px 4px 20px;scroll-snap-type:x mandatory}
-  .review{
-    flex:0 0 300px;scroll-snap-align:start;background:#fff;border-radius:16px;
-    padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.07);border-left:4px solid var(--gold);
-  }
-  .review .stars{color:var(--gold);margin-bottom:10px}
-  .review p{font-style:italic;color:#4a443a;margin-bottom:14px}
-  .review .who{font-weight:bold;color:var(--emerald)}
+/* ===== PRICES ===== */
+.prices{background:#fff}
+.prices-band{
+  background:linear-gradient(135deg,var(--ruby-dark),var(--ruby) 55%,var(--gold));
+  border-radius:24px;padding:46px 30px;color:#fff;
+  position:relative;overflow:hidden;box-shadow:0 20px 45px rgba(0,0,0,.3);
+}
+.prices-band::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255,255,255,.18) 0 8px,transparent 9px),
+    radial-gradient(circle at 10% 90%, rgba(255,255,255,.14) 0 6px,transparent 7px);
+  background-size:90px 90px;
+  pointer-events:none;
+}
+.prices-band h2{text-align:center;font-size:1.9rem;color:#fff;margin-bottom:10px;position:relative}
+.prices-band .lead{text-align:center;color:#ffe8c2;margin-bottom:34px;font-size:1.05rem;position:relative}
+.price-block{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;position:relative}
+.p-item{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.35);border-radius:16px;padding:22px;text-align:center;backdrop-filter:blur(2px)}
+.p-item h4{color:var(--gold-light);font-size:1.2rem;margin-bottom:12px}
+.price{font-size:1.9rem;font-weight:bold;color:#fff}
+.p-item small{display:block;color:#ffe8c2;margin-top:6px;font-size:.9rem}
+.p-item ul{list-style:none;margin-top:12px;text-align:left}
+.p-item li{color:#f6efe2;font-size:.93rem;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.2)}
+.p-item li:last-child{border:none}
 
-  /* ===== ЦЕНЫ ===== */
-  .prices{
-    background:var(--emerald);border-radius:24px;padding:44px;color:#fff;
-    box-shadow:0 12px 40px rgba(20,60,49,.35);position:relative;overflow:hidden;
-  }
-  .prices:before{
-    content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;
-    border-radius:50%;background:rgba(230,196,90,.14);
-  }
-  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;position:relative;z-index:1}
-  .price-item{background:rgba(255,255,255,.08);border-radius:16px;padding:22px;border:1px solid rgba(230,196,90,.35)}
-  .price-item .p-name{font-size:1.05rem;color:var(--gold-light);margin-bottom:6px;font-weight:bold}
-  .price-item .p-desc{font-size:.85rem;color:#d8d2c0;margin-bottom:10px}
-  .price-item .p-price{font-size:1.5rem;color:#fff;font-weight:bold}
-  .price-line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed rgba(255,255,255,.2);padding:8px 0}
-  .price-line span{font-size:.9rem}
+/* ===== REVIEWS (horizontal scroll) ===== */
+.reviews{background:var(--cream)}
+.rev-scroll{display:flex;gap:20px;overflow-x:auto;padding:10px 4px 24px;scroll-snap-type:x mandatory}
+.rev-scroll::-webkit-scrollbar{height:10px}
+.rev-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+.rev-scroll::-webkit-scrollbar-track{background:#e6dcc8;border-radius:10px}
+.rev-card{
+  flex:0 0 320px;scroll-snap-align:start;background:#fff;
+  border-radius:16px;padding:24px;border-top:5px solid var(--gold);
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.stars{color:var(--gold);font-size:1.2rem;letter-spacing:2px}
+.rev-card p{color:#5b4a3e;font-style:italic;margin:12px 0;font-size:.97rem}
+.rev-author{font-weight:bold;color:var(--ruby-dark)}
+.rev-role{font-size:.82rem;color:#9a8674}
 
-  /* ===== FAQ ===== */
-  .faq{max-width:780px;margin:0 auto}
-  .faq-item{background:#fff;border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.06)}
-  .faq-q{width:100%;background:none;border:none;padding:18px 20px;text-align:left;font-size:1.05rem;cursor:pointer;color:var(--emerald);font-weight:bold;display:flex;justify-content:space-between;align-items:center}
-  .faq-q:after{content:"+";font-size:1.6rem;color:var(--gold)}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:#6b6456}
-  .faq-item.open .faq-a{max-height:300px;padding:0 20px 18px}
-  .faq-item.open .faq-q:after{content:"–"}
+/* ===== FAQ ===== */
+.faq{background:#fff}
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{border:2px solid #e8dcc8;border-radius:12px;margin-bottom:14px;overflow:hidden}
+.faq-item summary{
+  cursor:pointer;padding:18px 22px;font-weight:bold;color:var(--ruby-dark);
+  background:var(--cream);list-style:none;position:relative;font-size:1.04rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:20px;color:var(--gold);font-size:1.5rem;line-height:1}
+.faq-item[open] summary::after{content:"−"}
+.faq-item .a{padding:16px 22px;color:#5b4a3e}
 
-  /* ===== КОНТАКТЫ ===== */
-  .contacts{padding:70px 20px;color:#fff}
-  .contacts-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  .contacts h2{font-size:1.9rem;margin-bottom:20px}
-  .contacts h2 span{color:var(--gold-light)}
-  .contact-row{display:flex;gap:14px;align-items:center;margin-bottom:18px}
-  .contact-row .ic{font-size:1.4rem;color:var(--gold)}
-  .contact-row a{color:#fff;text-decoration:none}
-  .contact-row a:hover{color:var(--gold-light)}
-  .contacts .logo-box{text-align:center;background:rgba(0,0,0,.25);border-radius:20px;padding:30px;border:1px solid rgba(230,196,90,.3)}
-  .contacts .logo-box img{width:110px;height:110px;border-radius:50%;border:3px solid var(--gold);margin-bottom:12px}
-  .map{width:100%;height:260px;border-radius:16px;border:0;margin-top:10px}
+/* ===== CONTACTS ===== */
+.contacts{
+  background:url('https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp') center/cover no-repeat;
+}
+.contacts::before{content:"";position:absolute;inset:0;background:rgba(20,60,52,.86);z-index:0}
+.contacts{position:relative}
+.contacts .wrap{position:relative;z-index:2}
+.contacts .section-title{color:#fff}
+.contacts .section-sub{color:#e8dcc8}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-bottom:34px}
+.c-card{background:rgba(255,255,255,.1);border:2px solid rgba(240,195,107,.5);border-radius:16px;padding:26px;color:#fff;text-align:center}
+.c-card .ico{font-size:2rem;margin-bottom:10px}
+.c-card h4{color:var(--gold-light);margin-bottom:8px}
+.c-card p,.c-card a{color:#f6efe2;text-decoration:none;font-size:1rem}
+.logo-contact{display:flex;justify-content:center}
+.logo-contact img{width:110px;height:110px;border-radius:50%;border:4px solid var(--gold);object-fit:cover}
+.map{width:100%;height:320px;border-radius:18px;border:3px solid var(--gold)}
 
-  footer{background:var(--emerald-dark);color:#cfc9b8;text-align:center;padding:24px 20px;font-size:.85rem}
-  footer .hand{color:var(--gold-light)}
+/* ===== HIGHLIGHT BANNER (handwork) ===== */
+.hand-banner{background:var(--ruby-dark);text-align:center;padding:34px 20px;color:#fff}
+.hand-banner .accent{color:var(--gold-light);font-size:1.2rem;font-weight:bold}
+.hand-banner p{max-width:760px;margin:12px auto 0;color:#f4e8d8;font-size:1.02rem}
 
-  @media(max-width:760px){
-    .menu{display:none;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--emerald-dark);padding:20px}
-    .menu.open{display:flex}
-    .burger{display:block}
-    .hero-inner{flex-direction:column;text-align:center}
-    .hero-photo{flex:0 0 auto}
-    .contacts-inner{grid-template-columns:1fr}
-  }
+footer{background:var(--ink);color:#cbb9a4;text-align:center;padding:22px;font-size:.85rem}
 </style>
 </head>
 <body>
 
-<!-- ===== ШАПКА ===== -->
+<!-- LOGO OPTION 2 IMAGE NOTE -->
+<!-- Header and contacts use logo image: https://static.mashagpt.ru/dl/mashagpt/i5hzavk1rt3ar6cxf5v94il3.png -->
+
+<!-- ===== HEADER ===== -->
 <header>
-  <nav class="nav">
-    <a class="brand" href="#">
-      <img src="https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png" alt="Логотип МВ">
-      <div class="brand-name">Машинная вышивка<small>ручная работа · Барда</small></div>
+  <div class="wrap">
+    <a class="logo" href="#hero">
+      <img src="https://static.mashagpt.ru/dl/mashagpt/i5hzavk1rt3ar6cxf5v94il3.png" alt="Логотип МВ">
+      <span class="logo-title">Машинная вышивка
+        <span class="logo-sub">студия «МВ»</span>
+      </span>
     </a>
-    <ul class="menu" id="menu">
-      <li><a href="#services">Услуги</a></li>
-      <li><a href="#works">Работы</a></li>
-      <li><a href="#prices">Цены</a></li>
-      <li><a href="#reviews">Отзывы</a></li>
-      <li><a href="#faq">Вопросы</a></li>
-      <li><a href="#contacts">Контакты</a></li>
-    </ul>
-    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
-  </nav>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#gallery">Работы</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </div>
 </header>
 
-<!-- ===== ГЛАВНЫЙ БЛОК ===== -->
-<div class="kepka-fon hero">
-  <div class="hero-inner">
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="wrap">
     <div class="hero-text">
-      <span class="badge-stich">🧵 Ручная работа · Эксклюзивная машинная вышивка</span>
-      <h1>Эксклюзивная машинная вышивка<br>на кепках, полотенцах и одежде</h1>
-      <p>Каждое изделие создаётся вручную в ателье ИП Мавлютова С.Л. — с душой, национальными узорами и безупречным качеством. Воплотим любую вашу идею.</p>
-      <a class="btn" href="#contacts">Рассчитать стоимость</a>
+      <span class="hero-badge">✨ Ручная работа · Эксклюзивная машинная вышивка</span>
+      <h1>Вышивка, сделанная <span>с душой</span><br>и руками мастера</h1>
+      <p>Уникальные изделия: каждое — результат ручного труда, выверенного на машинке. Эксклюзивные дизайны, национальный колорит, безупречная строчка для вас и вашего бизнеса.</p>
     </div>
     <div class="hero-photo">
-      <img src="https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp" alt="Светлана в кепке с вышивкой">
-    </div>
-  </div>
-</div>
-
-<!-- ===== УСЛУГИ ===== -->
-<section id="services">
-  <h2 class="section-title">Наши возможности</h2>
-  <p class="section-sub">Ручная работа и эксклюзивная машинная вышивка любой сложности — от надписей до многоцветных национальных орнаментов.</p>
-  <div class="services">
-    <div class="card"><div class="ico">🧢</div><h3>Кепки и бейсболки</h3><p>Именные вышивки, логотипы, национальные узоры на любых головных уборах.</p></div>
-    <div class="card"><div class="ico">🖼️</div><h3>Национальные орнаменты</h3><p>Татарские и народные узоры, рушники, традиционные мотивы вручную.</p></div>
-    <div class="card"><div class="ico">👕</div><h3>Брендирование одежды</h3><p>Логотипы на худи, футболках, форменная одежда для компаний.</p></div>
-    <div class="card"><div class="ico">✨</div><h3>Индивидуальные заказы</h3><p>Воплотим ваш эскиз или идею в эксклюзивную вышивку.</p></div>
-  </div>
-</section>
-
-<!-- ===== ГАЛЕРЕЯ ===== -->
-<section id="works">
-  <h2 class="section-title">Наши работы</h2>
-  <p class="section-sub">Полотенца, фартуки, халаты, кепки и многое другое — всё ручной работы.</p>
-  <div class="gallery">
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp" alt="Кепка"><div class="g-caption">Кепка с вышивкой</div></div>
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/o159fxozfhfcrpl6rqko7rcj.webp" alt="Полотенце"><div class="g-caption">Полотенце с орнаментом</div></div>
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/s94u4yuc3yoqgleh8l7bbjne.webp" alt="Полотенце"><div class="g-caption">Полотенце банное</div></div>
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/axat6f9675qit0mgx1hre1fb.webp" alt="Фартук"><div class="g-caption">Фартук с вышивкой</div></div>
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/r5anl2fjxmeva8ay721n9e5m.webp" alt="Халат"><div class="g-caption">Халат с узором</div></div>
-    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/xxfliycxnqg7fjyoeryqnrvo.webp" alt="Процесс раскроя"><div class="g-caption">Ручной раскрой материала</div></div>
-  </div>
-</section>
-
-<!-- ===== ЦЕНЫ ===== -->
-<section id="prices">
-  <div class="prices">
-    <h2 class="section-title" style="color:#fff">Прайс-лист</h2>
-    <p class="section-sub" style="color:#d8d2c0">Доступные цены и эксклюзивная машинная вышивка ручной работы</p>
-    <div class="price-grid">
-      <div class="price-item">
-        <div class="p-name">🧢 Кепка с вышивкой</div>
-        <div class="p-desc">Любой дизайн, логотип или орнамент</div>
-        <div class="p-price">750 ₽</div>
-      </div>
-      <div class="price-item">
-        <div class="p-name">🖼️ Полотенце с вышивкой</div>
-        <div class="p-price">450 ₽</div>
-        <div class="p-desc">размер 30/50 см</div>
-        <div class="price-line"><span>40/70 см</span><span>650 ₽</span></div>
-        <div class="price-line"><span>50/90 см</span><span>950 ₽</span></div>
-        <div class="price-line"><span>банное 70/140 см</span><span>1 400 ₽</span></div>
-      </div>
-      <div class="price-item">
-        <div class="p-name">👗 Фартук</div>
-        <div class="p-desc">цена зависит от дизайна и сложности</div>
-        <div class="p-price">850 – 1 200 ₽</div>
-      </div>
-      <div class="price-item">
-        <div class="p-name">🛍️ Халаты и другое</div>
-        <div class="p-desc">индивидуальный расчёт под ваш заказ</div>
-        <div class="p-price">по запросу</div>
-      </div>
+      <img src="https://static.mashagpt.ru/dl/mashagpt/o159fxozfhfcrpl6rqko7rcj.webp" alt="Светлана в кепке с вышивкой">
     </div>
   </div>
 </section>
 
-<!-- ===== ОТЗЫВЫ ===== -->
-<section id="reviews">
-  <h2 class="section-title">Отзывы наших клиентов</h2>
-  <div class="scroll-row">
-    <div class="review"><div class="stars">★★★★★</div><p>Вышили кепку с фамилией — идеально ровная строчка! Очень довольна, спасибо за ручную работу.</p><div class="who">— Альфия, Барда</div></div>
-    <div class="review"><div class="stars">★★★★★</div><p>Заказывала полотенца с национальным узором на подарок. Красота невероятная, все в восторге!</p><div class="who">— Гузель, Пермь</div></div>
-    <div class="review"><div class="stars">★★★★★</div><p>Сделали брендирование фартуков для кафе. Аккуратно, быстро и по приятной цене. Рекомендую!</p><div class="who">— Ильдар, Оса</div></div>
-    <div class="review"><div class="stars">★★★★★</div><p>Воплотили мой эскиз на худи — получилась эксклюзивная вещь ручной работы. Очень красиво!</p><div class="who">— Лилия, Кунгур</div></div>
-    <div class="review"><div class="stars">★★★★★</div><p>Мастерицы — настоящие профессионалки. Вышивка на халате выглядит дорого и качественно. Спасибо!</p><div class="who">— Наиля, Барда</div></div>
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <h2 class="section-title">Наши <span class="accent-word">услуги</span></h2>
+    <p class="section-sub">Каждое изделие — ручная работа и авторская машинная вышивка под ключ</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-emoji">🧢</div><h3>Вышивка на кепках</h3><p>Классические и современные кепки с вашим дизайном или национальным орнаментом.</p></div>
+      <div class="service-card"><div class="service-emoji">🌸</div><h3>Национальный орнамент</h3><p>Татарские узоры, тюльпаны и аутентичные мотивы — эксклюзивно и со вкусом.</p></div>
+      <div class="service-card"><div class="service-emoji">🏷️</div><h3>Брендирование</h3><p>Логотипы, надписи и фирменные изображения для одежды и сувениров.</p></div>
+      <div class="service-card"><div class="service-emoji">🧵</div><h3>Индивидуальные заказы</h3><p>Полотенца, фартуки, халаты, текстиль — воплотим любую идею.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <h2 class="section-title">Наши работы</h2>
+    <p class="section-sub">Ручная работа и эксклюзивные стежки в каждом изделии</p>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp" alt="Кепки с вышивкой"><div class="cap">Кепки с вышивкой</div></div>
+      <div class="gal-item"><img src="https://static.mashagpt.ru/dl/mashagpt/o159fxozfhfcrpl6rqko7rcj.webp" alt="Кепка с орнаментом"><div class="cap">Кепка с татарским орнаментом</div></div>
+      <div class="gal-item"><img src="https://static.mashagpt.ru/dl/mashagpt/s94u4yuc3yoqgleh8l7bbjne.webp" alt="Полотенца с вышивкой"><div class="cap">Полотенца с вышивкой</div></div>
+      <div class="gal-item"><img src="https://static.mashagpt.ru/dl/mashagpt/axat6f9675qit0mgx1hre1fb.webp" alt="Фартуки с вышивкой"><div class="cap">Фартуки с вышивкой</div></div>
+      <div class="gal-item"><img src="https://static.mashagpt.ru/dl/mashagpt/r5anl2fjxmeva8ay721n9e5m.webp" alt="Халаты с вышивкой"><div class="cap">Халаты с вышивкой</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICES ===== -->
+<section class="prices" id="prices">
+  <div class="wrap">
+    <div class="prices-band">
+      <h2>💰 Наши цены</h2>
+      <p class="lead">Честные расценки на ручную работу и машинную вышивку</p>
+      <div class="price-block">
+        <div class="p-item">
+          <h4>🧢 Кепка с вышивкой</h4>
+          <div class="price">750 ₽</div>
+          <small>с дизайном под ключ</small>
+        </div>
+        <div class="p-item">
+          <h4>🧻 Полотенца с вышивкой</h4>
+          <div class="price">450–1400 ₽</div>
+          <ul>
+            <li>30×50 см — 450 ₽</li>
+            <li>40×70 см — 650 ₽</li>
+            <li>50×90 см — 950 ₽</li>
+            <li>банное 70×140 см — 1400 ₽</li>
+          </ul>
+        </div>
+        <div class="p-item">
+          <h4>👨‍🍳 Фартук с вышивкой</h4>
+          <div class="price">850–1200 ₽</div>
+          <small>цена зависит от дизайна</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="section-title">Отзывы клиентов</h2>
+    <p class="section-sub">Скролльте — здесь искренние слова о нашей работе</p>
+    <div class="rev-scroll">
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>Заказывала кепку с татарским орнаментом для папы. Вышивка идеально ровная, выглядит как авторская работа! Очень довольна.</p>
+        <div class="rev-author">Гульнара</div>
+        <div class="rev-role">Казань</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>Делали брендирование фартуков для нашей кофейни. Точные сроки, аккуратная строчка, стильно. Рекомендую!</p>
+        <div class="rev-author">Альберт</div>
+        <div class="rev-role">Владелец кофейни</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>Светлана — настоящий мастер. Помогла подобрать дизайн банных полотенец. Качество на высоте, ручная кропотливая работа.</p>
+        <div class="rev-author">Лейсан</div>
+        <div class="rev-role">Домохозяйка</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>Эксклюзивная вышивка халатов — то, что нужно! Долго искали, кто сделает по-настоящему красиво. Нашли здесь.</p>
+        <div class="rev-author">Ильназ</div>
+        <div class="rev-role">Предприниматель</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <p>Заказывал кепки с логотипом фирмы для команды. Всё супер: плотная строчка, яркие цвета, выдержали стирку. Спасибо!</p>
+        <div class="rev-author">Дамир</div>
+        <div class="rev-role">Руководитель компании</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section id="faq">
-  <h2 class="section-title">Частые вопросы</h2>
-  <div class="faq">
-    <div class="faq-item open">
-      <button class="faq-q">Как происходит заказ вышивки?</button>
-      <div class="faq-a">Вы присылаете идею, фото или эскиз (в VK или мессенджер). Мы согласовываем макет, цену и срок, после чего изготавливаем изделие вручную.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Какие сроки изготовления?</button>
-      <div class="faq-a">Обычно от 1 до 3 дней в зависимости от сложности узора и количества изделий.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Можно ли вышить мой собственный логотип?</button>
-      <div class="faq-a">Да! Принимаем заказы на брендирование одежды и аксессуаров по вашим файлам.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Как ухаживать за вышивкой?</button>
-      <div class="faq-a">Рекомендуем стирку при 30–40°C наизнанку и глажку с внутренней стороны — вышивка сохранится надолго.</div>
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2 class="section-title">Часто задаваемые вопросы</h2>
+    <p class="section-sub">Всё, что важно знать о нашей работе</p>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Сколько времени занимает вышивка?</summary><div class="a">Обычно 2–4 дня в зависимости от сложности дизайна и объёма заказа. Срочные заказы — по договорённости.</div></details>
+      <details class="faq-item"><summary>Могу ли я принести свой дизайн?</summary><div class="a">Да! Присылайте логотип, фото или эскиз — мы подгоним макет под вышивальную машинку и согласуем с вами.</details>
+      <details class="faq-item"><summary>Можно ли заказать национальный орнамент?</summary><div class="a">Конечно. Татарские узоры, тюльпаны, аутентичные мотивы — наша специализация. Сделаем эксклюзивно.</div></details>
+      <details class="faq-item"><summary>Есть ли минимальный заказ?</summary><div class="a">Минимальный заказ — 1 единица. Для корпоративных заказов от 10 штук действуют скидки.</div></details>
+      <details class="faq-item"><summary>Как ухаживать за вышивкой?</summary><div class="a">Рекомендуем стирать изделия наизнанку при температуре до 40°C. Вышивка устойчива и сохраняет вид долгие годы.</div></details>
     </div>
   </div>
 </section>
 
-<!-- ===== КОНТАКТЫ ===== -->
-<div class="kepka-fon contacts" id="contacts">
-  <div class="contacts-inner">
-    <div>
-      <h2>Свяжитесь с нами<br><span>закажите свою вышивку</span></h2>
-      <div class="contact-row"><span class="ic">📍</span><span>Пермский край, с. Барда, ул. Куйбышева, 104<br>Ателье ИП Мавлютова С.Л.</span></div>
-      <div class="contact-row"><span class="ic">📞</span><span>8 (992) 227-28-04</span></div>
-      <div class="contact-row"><span class="ic">💬</span><a href="https://vk.ru/svetkachvey" target="_blank">Написать в VK</a></div>
-      <iframe class="map" src="https://yandex.ru/map-widget/v1/?text=Пермский край село Барда&z=10" loading="lazy"></iframe>
-    </div>
-    <div class="logo-box">
-      <img src="https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png" alt="Логотип МВ">
-      <h3>Машинная вышивка</h3>
-      <p style="color:#d8d2c0">Ручная работа · эксклюзивная вышивка<br>Работаем с любовью к своему делу 💛</p>
-    </div>
+<!-- ===== HANDWORK BANNER ===== -->
+<div class="hand-banner">
+  <div class="wrap">
+    <div class="accent">🧵 Ручная работа · Эксклюзивная машинная вышивка</div>
+    <p>Каждый стежок ложится по-особенному — мы относимся к вашему заказу как к произведению искусства. Ни один узор не повторяется: вы получаете по-настоящему уникальное изделие.</p>
   </div>
 </div>
 
-<footer>
-  © <span id="year"></span> Машинная вышивка · ИП Мавлютова С.Л. · с. Барда · <span class="hand">ручная работа и эксклюзивная вышивка</span>
-</footer>
+<!-- ===== CONTACTS ===== -->
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="logo-contact">
+      <img src="https://static.mashagpt.ru/dl/mashagpt/i5hzavk1rt3ar6cxf5v94il3.png" alt="Логотип МВ">
+    </div>
+    <h2 class="section-title">Контакты</h2>
+    <p class="section-sub">Ждём вас! Закажите свой эксклюзив уже сегодня</p>
+    <div class="contact-grid">
+      <div class="c-card">
+        <div class="ico">📍</div>
+        <h4>Адрес</h4>
+        <p>г. Казань, ул. Вышивальная, 15</p>
+      </div>
+      <div class="c-card">
+        <div class="ico">💬</div>
+        <h4>Соцсети</h4>
+        <a href="#">ВКонтакте: vk.com/mv_vyshivka</a>
+      </div>
+      <div class="c-card">
+        <div class="ico">⏰</div>
+        <h4>Режим работы</h4>
+        <p>Пн–Сб: 9:00–19:00<br>Вс: выходной</p>
+      </div>
+    </div>
+    <iframe class="map" src="https://www.google.com/maps?q=Kazan&output=embed" loading="lazy" title="Карта"></iframe>
+  </div>
+</section>
 
-<script>
-  // Год
-  document.getElementById('year').textContent = new Date().getFullYear();
+<footer>© 2026 Студия машинной вышивки «МВ» · Ручная работа и эксклюзивная вышивка</footer>
 
-  // FAQ аккордеон
-  document.querySelectorAll('.faq-item').forEach(item=>{
-    item.querySelector('.faq-q').addEventListener('click',()=>{
-      item.classList.toggle('open');
-    });
-  });
-
-  // Анимация появления при скролле
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)'}
-    });
-  },{threshold:.15});
-  document.querySelectorAll('.card,.g-item,.review').forEach((el,i)=>{
-    el.style.opacity=0;el.style.transform='translateY(30px)';el.style.transition=`opacity .6s ${i*.08}s, transform .6s ${i*.08}s`;
-    io.observe(el);
-  });
-</script>
 </body>
 </html>

@@ -1,564 +1,345 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Машинная вышивка — с. Барда | ИП Мавлютова С.Л.</title>
-  <meta name="description" content="Эксклюзивная машинная вышивка на кепках, одежде и аксессуарах. Национальные орнаменты, брендирование. с. Барда, Пермский край." />
-  <style>
-    /* ============ ПАЛИТРА (ТАТАРСКИЙ НАЦИОНАЛЬНЫЙ СТИЛЬ) ============ */
-    :root {
-      --ruby: #9c1f2c;       /* рубиновый */
-      --ruby-dark: #6e121b;
-      --gold: #d4a017;       /* золото */
-      --emerald: #1f7a3d;    /* изумруд */
-      --cream: #faf6ee;      /* молочный крем */
-      --dark: #2b1a1e;       /* тёмный бордово-коричневый */
-      --white: #ffffff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Машинная вышивка | Ручная работа в Барде</title>
+<style>
+  :root{
+    --emerald:#1f5c4b;
+    --emerald-dark:#143c31;
+    --gold:#c9a227;
+    --gold-light:#e6c45a;
+    --sand:#f4efe3;
+    --ink:#2a2620;
+    --bordo:#8a2f2f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Georgia',serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  /* Национальный татарский фон-орнамент (не красный) */
+  .tatar-bg{
+    background-color:var(--emerald);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(230,196,90,.20) 0, transparent 28%),
+      radial-gradient(circle at 85% 75%, rgba(230,196,90,.18) 0, transparent 30%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 6px, transparent 6px 12px);
+  }
+  .kepka-fon{
+    background:linear-gradient(180deg, rgba(20,60,49,.82), rgba(20,60,49,.86)),
+      url('https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png') center/cover no-repeat;
+  }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--emerald-dark);
+    box-shadow:0 2px 12px rgba(0,0,0,.25);
+  }
+  .nav{
+    max-width:1200px;margin:0 auto;padding:12px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold)}
+  .brand-name{color:#fff;font-size:1.15rem;font-weight:bold;letter-spacing:.5px}
+  .brand-name small{display:block;font-size:.7rem;color:var(--gold-light);letter-spacing:2px;text-transform:uppercase}
+  .menu{display:flex;gap:26px;list-style:none}
+  .menu a{color:#f2ead6;text-decoration:none;font-size:.95rem;transition:.3s}
+  .menu a:hover{color:var(--gold-light)}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
 
-    html { scroll-behavior: smooth; }
+  /* ===== HERO ===== */
+  .hero{padding:70px 20px;color:#fff;position:relative;overflow:hidden}
+  .hero-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:50px;flex-wrap:wrap}
+  .hero-text{flex:1;min-width:280px}
+  .hero-text h1{font-size:2.3rem;line-height:1.2;margin-bottom:18px}
+  .hero-text h1 span{color:var(--gold-light)}
+  .hero-text p{font-size:1.1rem;max-width:520px;margin-bottom:26px;color:#efe9d8}
+  .btn{
+    display:inline-block;background:var(--gold);color:var(--emerald-dark);
+    padding:14px 30px;border-radius:40px;font-weight:bold;text-decoration:none;
+    font-size:1.05rem;transition:.3s;box-shadow:0 6px 20px rgba(201,162,39,.4);
+  }
+  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .hero-photo{flex:0 0 320px;display:flex;justify-content:center}
+  .hero-photo img{
+    width:300px;height:300px;border-radius:50%;object-fit:cover;
+    border:5px solid var(--gold);box-shadow:0 0 40px rgba(201,162,39,.5);
+  }
+  .badge-stich{
+    display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.35);
+    padding:8px 16px;border-radius:30px;margin-bottom:20px;font-size:.85rem;color:var(--gold-light);
+  }
 
-    body {
-      font-family: 'Segoe UI', 'Arial', sans-serif;
-      color: var(--dark);
-      background-color: var(--cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  /* ===== SECTIONS ===== */
+  section{max-width:1200px;margin:0 auto;padding:60px 20px}
+  .section-title{text-align:center;font-size:1.9rem;margin-bottom:10px;position:relative;padding-bottom:16px}
+  .section-title:after{content:"";display:block;width:70px;height:3px;background:var(--gold);margin:14px auto 0;border-radius:3px}
+  .section-sub{text-align:center;color:#6b6456;max-width:700px;margin:0 auto 40px}
 
-    a { text-decoration: none; color: inherit; }
+  /* ===== УСЛУГИ ===== */
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+  .card{
+    background:#fff;border-radius:16px;padding:26px;text-align:center;
+    box-shadow:0 4px 16px rgba(0,0,0,.07);transition:.3s;border:1px solid #e7dfcb;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,.12)}
+  .card .ico{font-size:2.4rem;margin-bottom:12px}
+  .card h3{color:var(--emerald);margin-bottom:8px}
+  .card p{color:#6b6456;font-size:.95rem}
 
-    .container { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
+  /* ===== ГАЛЕРЕЯ ===== */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+  .g-item{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .g-item img{width:100%;height:240px;object-fit:cover;display:block;transition:.4s}
+  .g-item:hover img{transform:scale(1.06)}
+  .g-caption{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;
+    background:linear-gradient(0deg, rgba(20,60,49,.9), transparent);
+    color:#fff;font-size:.9rem;font-weight:bold;
+  }
 
-    /* ============ ШАПКА ============ */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: linear-gradient(90deg, var(--ruby-dark), var(--ruby));
-      color: var(--white);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    }
+  /* ===== ОТЗЫВЫ (скролл) ===== */
+  .scroll-row{display:flex;gap:20px;overflow-x:auto;padding:10px 4px 20px;scroll-snap-type:x mandatory}
+  .review{
+    flex:0 0 300px;scroll-snap-align:start;background:#fff;border-radius:16px;
+    padding:22px;box-shadow:0 4px 14px rgba(0,0,0,.07);border-left:4px solid var(--gold);
+  }
+  .review .stars{color:var(--gold);margin-bottom:10px}
+  .review p{font-style:italic;color:#4a443a;margin-bottom:14px}
+  .review .who{font-weight:bold;color:var(--emerald)}
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      max-width: 1150px;
-      margin: 0 auto;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+  /* ===== ЦЕНЫ ===== */
+  .prices{
+    background:var(--emerald);border-radius:24px;padding:44px;color:#fff;
+    box-shadow:0 12px 40px rgba(20,60,49,.35);position:relative;overflow:hidden;
+  }
+  .prices:before{
+    content:"";position:absolute;top:-40px;right:-40px;width:220px;height:220px;
+    border-radius:50%;background:rgba(230,196,90,.14);
+  }
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;position:relative;z-index:1}
+  .price-item{background:rgba(255,255,255,.08);border-radius:16px;padding:22px;border:1px solid rgba(230,196,90,.35)}
+  .price-item .p-name{font-size:1.05rem;color:var(--gold-light);margin-bottom:6px;font-weight:bold}
+  .price-item .p-desc{font-size:.85rem;color:#d8d2c0;margin-bottom:10px}
+  .price-item .p-price{font-size:1.5rem;color:#fff;font-weight:bold}
+  .price-line{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed rgba(255,255,255,.2);padding:8px 0}
+  .price-line span{font-size:.9rem}
 
-    .brand { display: flex; align-items: center; gap: 12px; }
+  /* ===== FAQ ===== */
+  .faq{max-width:780px;margin:0 auto}
+  .faq-item{background:#fff;border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+  .faq-q{width:100%;background:none;border:none;padding:18px 20px;text-align:left;font-size:1.05rem;cursor:pointer;color:var(--emerald);font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+  .faq-q:after{content:"+";font-size:1.6rem;color:var(--gold)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 20px;color:#6b6456}
+  .faq-item.open .faq-a{max-height:300px;padding:0 20px 18px}
+  .faq-item.open .faq-q:after{content:"–"}
 
-    /* ЛОГОТИП — монограмма МВ */
-    .logo {
-      width: 56px;
-      height: 56px;
-      flex-shrink: 0;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 3px var(--gold), 0 0 0 6px var(--ruby);
-    }
+  /* ===== КОНТАКТЫ ===== */
+  .contacts{padding:70px 20px;color:#fff}
+  .contacts-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .contacts h2{font-size:1.9rem;margin-bottom:20px}
+  .contacts h2 span{color:var(--gold-light)}
+  .contact-row{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+  .contact-row .ic{font-size:1.4rem;color:var(--gold)}
+  .contact-row a{color:#fff;text-decoration:none}
+  .contact-row a:hover{color:var(--gold-light)}
+  .contacts .logo-box{text-align:center;background:rgba(0,0,0,.25);border-radius:20px;padding:30px;border:1px solid rgba(230,196,90,.3)}
+  .contacts .logo-box img{width:110px;height:110px;border-radius:50%;border:3px solid var(--gold);margin-bottom:12px}
+  .map{width:100%;height:260px;border-radius:16px;border:0;margin-top:10px}
 
-    .logo svg { width: 38px; height: 38px; }
+  footer{background:var(--emerald-dark);color:#cfc9b8;text-align:center;padding:24px 20px;font-size:.85rem}
+  footer .hand{color:var(--gold-light)}
 
-    .brand-text { line-height: 1.1; }
-    .brand-text h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.5px; }
-    .brand-text span { font-size: 0.78rem; opacity: 0.9; }
-
-    nav ul {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    nav li { cursor: pointer; transition: color .2s, border-color .2s; }
-    nav li a { border-bottom: 2px solid transparent; padding-bottom: 3px; }
-    nav li a:hover { color: var(--gold); border-color: var(--gold); }
-
-    .header-cta { display: flex; align-items: center; gap: 10px; }
-    .phone { font-weight: 700; white-space: nowrap; }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-      border: none;
-      font-size: 0.95rem;
-    }
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-gold { background: var(--gold); color: var(--dark); }
-    .btn-ruby { background: var(--ruby); color: var(--white); }
-
-    /* БУРГЕР-МЕНЮ ДЛЯ МОБИЛЬНЫХ */
-    .burger {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    /* ============ HERO (ВИЗУАЛ С ФОНОМ ОРНАМЕНТА) ============ */
-    .hero {
-      position: relative;
-      color: var(--white);
-      padding: 90px 0;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(110,18,27,0.95), rgba(156,31,44,0.9)), var(--ruby);
-    }
-
-    /* Фон — полупрозрачное полотно с орнаментом (Фото №7) */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('https://static.mashagpt.ru/dl/mashagpt/sekumyexrdz40y0b6lkwac4y.webp') center/cover no-repeat;
-      opacity: 0.18; /* полупрозрачный орнамент */
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-
-    .hero-left { flex: 1 1 480px; }
-
-    .hero-left .eyebrow {
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      margin-bottom: 15px;
-    }
-
-    .hero-left h2 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 18px; }
-    .hero-left h2 span { color: var(--gold); }
-    .hero-left p { font-size: 1.1rem; opacity: 0.95; margin-bottom: 28px; max-width: 520px; }
-
-    .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
-
-    /* Фото №1 — девушка в кепке */
-    .hero-right { flex: 1 1 380px; text-align: center; }
-    .hero-right img {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 20px;
-      border: 5px solid var(--gold);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    }
-
-    /* ============ УСЛУГИ ============ */
-    .section { padding: 80px 0; }
-    .section-head { text-align: center; margin-bottom: 50px; }
-    .section-head h2 { font-size: 2rem; color: var(--ruby); }
-    .section-head p { color: #777; margin-top: 10px; }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 30px 22px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform .3s, box-shadow .3s;
-      border-top: 5px solid var(--ruby);
-      cursor: pointer;
-    }
-
-    .card:hover { transform: translateY(-10px); box-shadow: 0 18px 40px rgba(0,0,0,0.15); }
-
-    .card .icon { font-size: 2.6rem; margin-bottom: 15px; }
-    .card h3 { color: var(--ruby); margin-bottom: 10px; }
-    .card p { color: #666; font-size: 0.95rem; }
-
-    /* ============ ГАЛЕРЕЯ ============ */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      cursor: pointer;
-      height: 240px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s;
-    }
-
-    .gallery-item:hover img { transform: scale(1.1); }
-    .gallery-item::after {
-      content: "✂️ Нажмите, чтобы увеличить";
-      position: absolute;
-      bottom: 0;
-      left: 0; right: 0;
-      background: rgba(110,18,27,0.85);
-      color: #fff;
-      padding: 8px;
-      font-size: 0.8rem;
-      text-align: center;
-      transform: translateY(100%);
-      transition: transform .3s;
-    }
-    .gallery-item:hover::after { transform: translateY(0); }
-
-    /* ============ ПРЕИМУЩЕСТВА ============ */
-    .features {
-      background: linear-gradient(135deg, var(--ruby-dark), var(--ruby));
-      color: var(--white);
-    }
-    .features .section-head h2 { color: var(--white); }
-    .features .section-head p { color: rgba(255,255,255,0.8); }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .feature {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 14px;
-      padding: 25px;
-      text-align: center;
-    }
-    .feature .num { font-size: 2.2rem; font-weight: 800; color: var(--gold); }
-    .feature h3 { margin: 10px 0 8px; }
-    .feature p { font-size: 0.92rem; opacity: 0.9; }
-
-    /* ============ КОНТАКТЫ (С ФОНОМ ОРНАМЕНТА) ============ */
-    .contacts { position: relative; padding: 80px 0; overflow: hidden; background: var(--cream); }
-    /* Фон — полупрозрачное полотно с орнаментом (Фото №7) */
-    .contacts::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('https://static.mashagpt.ru/dl/mashagpt/sekumyexrdz40y0b6lkwac4y.webp') center/cover no-repeat;
-      opacity: 0.12;
-    }
-
-    .contacts-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      align-items: center;
-    }
-
-    .contact-info { background: var(--white); border-radius: 16px; padding: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-left: 6px solid var(--ruby); }
-    .contact-info h2 { color: var(--ruby); margin-bottom: 20px; }
-    .contact-row { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; font-size: 1.02rem; }
-    .contact-row .ic { font-size: 1.5rem; }
-
-    .map-wrap { border-radius: 16px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.15); border: 4px solid var(--ruby); min-height: 320px; }
-
-    /* ============ ФУТЕР ============ */
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.85);
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9rem;
-    }
-    footer strong { color: var(--gold); }
-
-    /* ============ ФОРМА МОДАЛЬНОГО ОКНА ============ */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 200;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .modal.show { display: flex; }
-
-    .modal-body { background: var(--white); border-radius: 16px; max-width: 500px; width: 100%; padding: 35px; position: relative; }
-    .modal-body h3 { color: var(--ruby); margin-bottom: 8px; }
-    .modal-body p { color: #666; margin-bottom: 20px; }
-    .modal-close { position: absolute; top: 12px; right: 16px; font-size: 1.6rem; cursor: pointer; color: #999; background: none; border: none; }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 13px 15px;
-      margin-bottom: 14px;
-      border: 2px solid #ddd;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--gold); }
-
-    /* ============ АНИМАЦИИ ПОЯВЛЕНИЯ ============ */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ============ АДАПТИВНОСТЬ ============ */
-    @media (max-width: 820px) {
-      nav { display: none; }
-      .burger { display: block; }
-      nav.open { display: block; position: absolute; top: 100%; left: 0; right: 0; background: var(--ruby); padding: 20px; }
-      nav.open ul { flex-direction: column; gap: 15px; }
-      nav.open ul li { font-size: 1.1rem; }
-      .hero-left h2 { font-size: 1.9rem; }
-      .header-cta .btn-gold { display: none; }
-      .section { padding: 55px 0; }
-    }
-  </style>
+  @media(max-width:760px){
+    .menu{display:none;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--emerald-dark);padding:20px}
+    .menu.open{display:flex}
+    .burger{display:block}
+    .hero-inner{flex-direction:column;text-align:center}
+    .hero-photo{flex:0 0 auto}
+    .contacts-inner{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
 
-  <!-- ============ ШАПКА ============ -->
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <!-- ЛОГОТИП "МВ" -->
-        <div class="logo" aria-label="Логотип Машинная вышивка">
-          <svg viewBox="0 0 100 100" fill="none">
-            <text x="50" y="72" text-anchor="middle"
-                  font-family="Georgia, serif" font-size="62" font-weight="bold"
-                  fill="none" stroke="#9c1f2c" stroke-width="3">МВ</text>
-            <text x="50" y="72" text-anchor="middle"
-                  font-family="Georgia, serif" font-size="62" font-weight="bold"
-                  fill="#d4a017">МВ</text>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1>Машинная вышивка</h1>
-          <span>handmade · ИП Мавлютова С.Л. · с. Барда</span>
-        </div>
-      </div>
+<!-- ===== ШАПКА ===== -->
+<header>
+  <nav class="nav">
+    <a class="brand" href="#">
+      <img src="https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png" alt="Логотип МВ">
+      <div class="brand-name">Машинная вышивка<small>ручная работа · Барда</small></div>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#works">Работы</a></li>
+      <li><a href="#prices">Цены</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  </nav>
+</header>
 
-      <button class="burger" id="burger" aria-label="Меню">☰</button>
-
-      <nav id="nav">
-        <ul>
-          <li><a href="#services">Услуги</a></li>
-          <li><a href="#gallery">Работы</a></li>
-          <li><a href="#features">Почему мы</a></li>
-          <li><a href="#contacts">Контакты</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-cta">
-        <span class="phone">📞 8 992 227-28-04</span>
-        <button class="btn btn-gold" onclick="openForm()">Рассчитать стоимость</button>
-      </div>
+<!-- ===== ГЛАВНЫЙ БЛОК ===== -->
+<div class="kepka-fon hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="badge-stich">🧵 Ручная работа · Эксклюзивная машинная вышивка</span>
+      <h1>Эксклюзивная машинная вышивка<br>на кепках, полотенцах и одежде</h1>
+      <p>Каждое изделие создаётся вручную в ателье ИП Мавлютова С.Л. — с душой, национальными узорами и безупречным качеством. Воплотим любую вашу идею.</p>
+      <a class="btn" href="#contacts">Рассчитать стоимость</a>
     </div>
-  </header>
-
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-left reveal">
-        <div class="eyebrow">Handmade · Ручная работа</div>
-        <h2>Эксклюзивная <span>машинная вышивка</span> на кепках и одежде</h2>
-        <p>Воплощаем ваши идеи в стежках: надписи, логотипы, национальные орнаменты. Ателье ИП Мавлютова С.Л. — село Барда, Пермский край.</p>
-        <div class="hero-actions">
-          <button class="btn btn-gold" onclick="openForm()">Рассчитать стоимость</button>
-          <a class="btn btn-ruby" href="https://vk.ru/svetkachvey" target="_blank" rel="noopener">Мы во ВКонтакте</a>
-        </div>
-      </div>
-      <div class="hero-right reveal">
-        <img src="https://static.mashagpt.ru/dl/mashagpt/zb74mocrmjqzua4irdlvwdyj.webp" alt="Кепка с машинной вышивкой" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ УСЛУГИ ============ -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Наши возможности</h2>
-        <p>Что мы можем вышить для вас</p>
-      </div>
-      <div class="services">
-        <div class="card reveal">
-          <div class="icon">🧢</div>
-          <h3>Вышивка на кепках</h3>
-          <p>Надписи и логотипы на бейсболках любых цветов и размеров.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">🌸</div>
-          <h3>Национальные орнаменты</h3>
-          <p>Традиционные татарские и народные узоры — наша фирменная фишка.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">👕</div>
-          <h3>Брендирование одежды</h3>
-          <p>Логотипы компании на худи, футболках, спецодежде и рабочей форме.</p>
-        </div>
-        <div class="card reveal">
-          <div class="icon">✏️</div>
-          <h3>Индивидуальные заказы</h3>
-          <p>Воплотим ваш эскиз или идею в качественную машинную вышивку.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ГАЛЕРЕЯ ============ -->
-  <section class="section" id="gallery" style="background:#f4ede1;">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Наши работы</h2>
-        <p>Живые фото из нашей мастерской</p>
-      </div>
-      <div class="gallery">
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/zb74mocrmjqzua4irdlvwdyj.webp" alt="Кепка с вышивкой" /></div>
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/go7gf4vsn8mfwnpj152x3rns.webp" alt="Изделия с орнаментом" /></div>
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/h1nzkioszs4evg6qt5i12pbi.webp" alt="Ткань с орнаментом" /></div>
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/d5pp0ibui33vrpned2z6m16t.webp" alt="Процесс раскроя" /></div>
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/hw8yxjome0cyovncnqi26ago.webp" alt="Готовая работа" /></div>
-        <div class="gallery-item reveal"><img src="https://static.mashagpt.ru/dl/mashagpt/s7wrfwn4raaje305fz82r8ea.webp" alt="Рукоделие" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ПРЕИМУЩЕСТВА ============ -->
-  <section class="section features" id="features">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Почему выбирают нас</h2>
-        <p>Ателье с проверенной репутацией в Барде</p>
-      </div>
-      <div class="feature-grid">
-        <div class="feature reveal">
-          <div class="num">01</div>
-          <h3>Местное производство</h3>
-          <p>Работаем в селе Барда, Пермский край. Живой контакт с клиентом.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="num">02</div>
-          <h3>Любая сложность</h3>
-          <p>От простых надписей на кепках до многоцветных этнических орнаментов.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="num">03</div>
-          <h3>Ручная работа</h3>
-          <p>Handmade подход — каждое изделие создаётся с душой и вниманием к деталям.</p>
-        </div>
-        <div class="feature reveal">
-          <div class="num">04</div>
-          <h3>Качество и сроки</h3>
-          <p>Современное оборудование, аккуратные стежки и соблюдение сроков.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ КОНТАКТЫ ============ -->
-  <section class="contacts" id="contacts">
-    <div class="container contacts-inner">
-      <div class="contact-info reveal">
-        <h2>Контакты</h2>
-        <div class="contact-row"><span class="ic">📍</span><span>Пермский край, с. Барда, ул. Куйбышева, 104</span></div>
-        <div class="contact-row"><span class="ic">📞</span><span>8 992 227-28-04</span></div>
-        <div class="contact-row"><span class="ic">🏢</span><span>Ателье ИП Мавлютова С.Л.</span></div>
-        <div class="contact-row"><span class="ic">💬</span><span>VK: <a href="https://vk.ru/svetkachvey" target="_blank" rel="noopener" style="color:var(--ruby); font-weight:700;">vk.ru/svetkachvey</a></span></div>
-        <button class="btn btn-ruby" onclick="openForm()" style="margin-top:10px;">Оставить заявку</button>
-      </div>
-      <div class="map-wrap reveal">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?text=Пермский%20край%2C%20Барда%2C%20Куйбышева%20104"
-          width="100%" height="320" style="border:0;" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ФУТЕР ============ -->
-  <footer>
-    <p>© 2025 <strong>Машинная вышивка</strong> — ателье ИП Мавлютова С.Л. | с. Барда, Пермский край</p>
-    <p style="margin-top:6px;">Handmade · ручная машинная вышивка на заказ</p>
-  </footer>
-
-  <!-- ============ МОДАЛЬНОЕ ОКНО (ЗАЯВКА) ============ -->
-  <div class="modal" id="formModal">
-    <div class="modal-body">
-      <button class="modal-close" onclick="closeForm()">×</button>
-      <h3>Рассчитать стоимость</h3>
-      <p>Оставьте заявку — мы свяжемся с вами для обсуждения деталей.</p>
-      <form onsubmit="submitForm(event)">
-        <input type="text" placeholder="Ваше имя" required />
-        <input type="tel" placeholder="Телефон" required />
-        <select>
-          <option>Вышивка на кепке</option>
-          <option>Национальный орнамент</option>
-          <option>Брендирование одежды</option>
-          <option>Индивидуальный заказ</option>
-        </select>
-        <textarea placeholder="Опишите вашу идею (необязательно)" rows="3"></textarea>
-        <button type="submit" class="btn btn-gold" style="width:100%;">Отправить заявку</button>
-      </form>
-      <p id="formMsg" style="color:var(--emerald); font-weight:700; display:none;">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+    <div class="hero-photo">
+      <img src="https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp" alt="Светлана в кепке с вышивкой">
     </div>
   </div>
+</div>
 
-  <script>
-    // ===== БУРГЕР-МЕНЮ =====
-    const burger = document.getElementById('burger');
-    const nav = document.getElementById('nav');
-    burger.addEventListener('click', () => nav.classList.toggle('open'));
+<!-- ===== УСЛУГИ ===== -->
+<section id="services">
+  <h2 class="section-title">Наши возможности</h2>
+  <p class="section-sub">Ручная работа и эксклюзивная машинная вышивка любой сложности — от надписей до многоцветных национальных орнаментов.</p>
+  <div class="services">
+    <div class="card"><div class="ico">🧢</div><h3>Кепки и бейсболки</h3><p>Именные вышивки, логотипы, национальные узоры на любых головных уборах.</p></div>
+    <div class="card"><div class="ico">🖼️</div><h3>Национальные орнаменты</h3><p>Татарские и народные узоры, рушники, традиционные мотивы вручную.</p></div>
+    <div class="card"><div class="ico">👕</div><h3>Брендирование одежды</h3><p>Логотипы на худи, футболках, форменная одежда для компаний.</p></div>
+    <div class="card"><div class="ico">✨</div><h3>Индивидуальные заказы</h3><p>Воплотим ваш эскиз или идею в эксклюзивную вышивку.</p></div>
+  </div>
+</section>
 
-    // ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ =====
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => observer.observe(el));
+<!-- ===== ГАЛЕРЕЯ ===== -->
+<section id="works">
+  <h2 class="section-title">Наши работы</h2>
+  <p class="section-sub">Полотенца, фартуки, халаты, кепки и многое другое — всё ручной работы.</p>
+  <div class="gallery">
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/fc202x53ag17ul4tzqrf8qd1.webp" alt="Кепка"><div class="g-caption">Кепка с вышивкой</div></div>
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/o159fxozfhfcrpl6rqko7rcj.webp" alt="Полотенце"><div class="g-caption">Полотенце с орнаментом</div></div>
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/s94u4yuc3yoqgleh8l7bbjne.webp" alt="Полотенце"><div class="g-caption">Полотенце банное</div></div>
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/axat6f9675qit0mgx1hre1fb.webp" alt="Фартук"><div class="g-caption">Фартук с вышивкой</div></div>
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/r5anl2fjxmeva8ay721n9e5m.webp" alt="Халат"><div class="g-caption">Халат с узором</div></div>
+    <div class="g-item"><img src="https://static.mashagpt.ru/dl/mashagpt/xxfliycxnqg7fjyoeryqnrvo.webp" alt="Процесс раскроя"><div class="g-caption">Ручной раскрой материала</div></div>
+  </div>
+</section>
 
-    // ===== МОДАЛЬНОЕ ОКНО =====
-    function openForm() { document.getElementById('formModal').classList.add('show'); }
-    function closeForm() { document.getElementById('formModal').classList.remove('show'); }
-    function submitForm(e) {
-      e.preventDefault();
-      document.getElementById('formMsg').style.display = 'block';
-      setTimeout(closeForm, 1800);
-    }
+<!-- ===== ЦЕНЫ ===== -->
+<section id="prices">
+  <div class="prices">
+    <h2 class="section-title" style="color:#fff">Прайс-лист</h2>
+    <p class="section-sub" style="color:#d8d2c0">Доступные цены и эксклюзивная машинная вышивка ручной работы</p>
+    <div class="price-grid">
+      <div class="price-item">
+        <div class="p-name">🧢 Кепка с вышивкой</div>
+        <div class="p-desc">Любой дизайн, логотип или орнамент</div>
+        <div class="p-price">750 ₽</div>
+      </div>
+      <div class="price-item">
+        <div class="p-name">🖼️ Полотенце с вышивкой</div>
+        <div class="p-price">450 ₽</div>
+        <div class="p-desc">размер 30/50 см</div>
+        <div class="price-line"><span>40/70 см</span><span>650 ₽</span></div>
+        <div class="price-line"><span>50/90 см</span><span>950 ₽</span></div>
+        <div class="price-line"><span>банное 70/140 см</span><span>1 400 ₽</span></div>
+      </div>
+      <div class="price-item">
+        <div class="p-name">👗 Фартук</div>
+        <div class="p-desc">цена зависит от дизайна и сложности</div>
+        <div class="p-price">850 – 1 200 ₽</div>
+      </div>
+      <div class="price-item">
+        <div class="p-name">🛍️ Халаты и другое</div>
+        <div class="p-desc">индивидуальный расчёт под ваш заказ</div>
+        <div class="p-price">по запросу</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Закрытие по клику на подложку
-    document.getElementById('formModal').addEventListener('click', (e) => {
-      if (e.target.id === 'formModal') closeForm();
+<!-- ===== ОТЗЫВЫ ===== -->
+<section id="reviews">
+  <h2 class="section-title">Отзывы наших клиентов</h2>
+  <div class="scroll-row">
+    <div class="review"><div class="stars">★★★★★</div><p>Вышили кепку с фамилией — идеально ровная строчка! Очень довольна, спасибо за ручную работу.</p><div class="who">— Альфия, Барда</div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>Заказывала полотенца с национальным узором на подарок. Красота невероятная, все в восторге!</p><div class="who">— Гузель, Пермь</div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>Сделали брендирование фартуков для кафе. Аккуратно, быстро и по приятной цене. Рекомендую!</p><div class="who">— Ильдар, Оса</div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>Воплотили мой эскиз на худи — получилась эксклюзивная вещь ручной работы. Очень красиво!</p><div class="who">— Лилия, Кунгур</div></div>
+    <div class="review"><div class="stars">★★★★★</div><p>Мастерицы — настоящие профессионалки. Вышивка на халате выглядит дорого и качественно. Спасибо!</p><div class="who">— Наиля, Барда</div></div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <h2 class="section-title">Частые вопросы</h2>
+  <div class="faq">
+    <div class="faq-item open">
+      <button class="faq-q">Как происходит заказ вышивки?</button>
+      <div class="faq-a">Вы присылаете идею, фото или эскиз (в VK или мессенджер). Мы согласовываем макет, цену и срок, после чего изготавливаем изделие вручную.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Какие сроки изготовления?</button>
+      <div class="faq-a">Обычно от 1 до 3 дней в зависимости от сложности узора и количества изделий.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Можно ли вышить мой собственный логотип?</button>
+      <div class="faq-a">Да! Принимаем заказы на брендирование одежды и аксессуаров по вашим файлам.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Как ухаживать за вышивкой?</button>
+      <div class="faq-a">Рекомендуем стирку при 30–40°C наизнанку и глажку с внутренней стороны — вышивка сохранится надолго.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== КОНТАКТЫ ===== -->
+<div class="kepka-fon contacts" id="contacts">
+  <div class="contacts-inner">
+    <div>
+      <h2>Свяжитесь с нами<br><span>закажите свою вышивку</span></h2>
+      <div class="contact-row"><span class="ic">📍</span><span>Пермский край, с. Барда, ул. Куйбышева, 104<br>Ателье ИП Мавлютова С.Л.</span></div>
+      <div class="contact-row"><span class="ic">📞</span><span>8 (992) 227-28-04</span></div>
+      <div class="contact-row"><span class="ic">💬</span><a href="https://vk.ru/svetkachvey" target="_blank">Написать в VK</a></div>
+      <iframe class="map" src="https://yandex.ru/map-widget/v1/?text=Пермский край село Барда&z=10" loading="lazy"></iframe>
+    </div>
+    <div class="logo-box">
+      <img src="https://static.mashagpt.ru/dl/mashagpt/clhnhcrvmq42z7ma6fk7q7bb.png" alt="Логотип МВ">
+      <h3>Машинная вышивка</h3>
+      <p style="color:#d8d2c0">Ручная работа · эксклюзивная вышивка<br>Работаем с любовью к своему делу 💛</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © <span id="year"></span> Машинная вышивка · ИП Мавлютова С.Л. · с. Барда · <span class="hand">ручная работа и эксклюзивная вышивка</span>
+</footer>
+
+<script>
+  // Год
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // FAQ аккордеон
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      item.classList.toggle('open');
     });
-  </script>
+  });
 
+  // Анимация появления при скролле
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='translateY(0)'}
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.card,.g-item,.review').forEach((el,i)=>{
+    el.style.opacity=0;el.style.transform='translateY(30px)';el.style.transition=`opacity .6s ${i*.08}s, transform .6s ${i*.08}s`;
+    io.observe(el);
+  });
+</script>
 </body>
 </html>
